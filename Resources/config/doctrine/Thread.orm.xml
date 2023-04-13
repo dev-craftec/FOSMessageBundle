@@ -8,9 +8,9 @@
 
         <field name="subject" column="subject" type="string" />
 
-        <field name="createdAt" fieldName="createdAt" type="datetime" />
+        <field name="createdAt" type="datetime" />
 
-        <field name="isSpam" fieldName="isSpam" type="boolean" />
+        <field name="isSpam" type="boolean" />
 
         <!--
         <many-to-one field="createdBy" target-entity="MyProject\UserBundle\Entity\User" />
