@@ -11,7 +11,7 @@ abstract class MessageMetadata extends BaseMessageMetadata
     protected $message;
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getId()
     {
