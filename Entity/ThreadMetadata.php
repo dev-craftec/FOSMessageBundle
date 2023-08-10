@@ -13,7 +13,7 @@ abstract class ThreadMetadata extends BaseThreadMetadata
     /**
      * Gets the thread map id.
      *
-     * @return int
+     * @return int|null
      */
     public function getId()
     {
