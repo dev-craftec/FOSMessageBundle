@@ -24,7 +24,7 @@ class AuthorizationValidator extends ConstraintValidator
      * @param object     $recipient
      * @param Constraint $constraint
      */
-    public function validate($recipient, Constraint $constraint)
+    public function validate($recipient, Constraint $constraint): void
     {
         if ($recipient && !$this->authorizer->canMessageParticipant($recipient)) {
             $this->context->addViolation($constraint->message);

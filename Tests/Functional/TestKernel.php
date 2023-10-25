@@ -84,7 +84,7 @@ class TestKernel extends Kernel
 }
 
 class RegisteringManagersPass implements CompilerPassInterface {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $container->register('fos_message.message_manager.default', MessageManager::class);
         $container->register('fos_message.thread_manager.default', ThreadManager::class);

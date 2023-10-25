@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class NewThreadMultipleMessageFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('recipients', LegacyFormHelper::getType('FOS\MessageBundle\FormType\RecipientsType'), [

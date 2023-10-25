@@ -27,7 +27,7 @@ class User implements ParticipantInterface, UserInterface, PasswordAuthenticated
         return [];
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
     }
 
