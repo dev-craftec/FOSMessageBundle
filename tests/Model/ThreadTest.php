@@ -34,7 +34,7 @@ class ThreadTest extends TestCase
     protected function createParticipantMock($id)
     {
         $participant = $this->getMockBuilder('FOS\MessageBundle\Model\ParticipantInterface')
-            ->disableOriginalConstructor(true)
+            ->disableOriginalConstructor()
             ->getMock();
 
         $participant->expects($this->any())

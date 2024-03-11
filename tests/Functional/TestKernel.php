@@ -30,14 +30,12 @@ class TestKernel extends Kernel
      */
     public function registerBundles(): iterable
     {
-        $bundles = [
+        return [
             new FrameworkBundle(),
             new SecurityBundle(),
             new TwigBundle(),
             new FOSMessageBundle(),
         ];
-
-        return $bundles;
     }
 
     /**

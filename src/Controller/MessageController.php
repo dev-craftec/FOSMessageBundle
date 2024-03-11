@@ -23,7 +23,7 @@ class MessageController extends AbstractController
     /**
      * @var FactoryInterface
      */
-    protected $replyFormfactory;
+    protected $replyFormFactory;
 
     /**
      * @var FormHandlerInterface
@@ -62,7 +62,7 @@ class MessageController extends AbstractController
 
     public function __construct(
         ProviderInterface $provider,
-        FactoryInterface $replyFormfactory,
+        FactoryInterface $replyFormFactory,
         FormHandlerInterface $replyFormHandler,
         FactoryInterface $newThreadFormFactory,
         FormHandlerInterface $newThreadFormHandler,
@@ -72,7 +72,7 @@ class MessageController extends AbstractController
         FinderInterface $finder
     ) {
         $this->provider = $provider;
-        $this->replyFormfactory = $replyFormfactory;
+        $this->replyFormFactory = $replyFormFactory;
         $this->replyFormHandler = $replyFormHandler;
         $this->newThreadFormFactory = $newThreadFormFactory;
         $this->newThreadFormHandler = $newThreadFormHandler;
@@ -128,7 +128,7 @@ class MessageController extends AbstractController
     public function threadAction($threadId)
     {
         $thread = $this->provider->getThread($threadId);
-        $form = $this->replyFormfactory->create($thread);
+        $form = $this->replyFormFactory->create($thread);
 
         if ($message = $this->replyFormHandler->process($form)) {
             return $this->redirectToRoute('fos_message_thread_view', ['threadId' => $message->getThread()->getId()]);

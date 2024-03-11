@@ -6,15 +6,15 @@
 
     <services>
         <service id="FOS\MessageBundle\Controller\MessageController" public="true">
-            <bind key="$provider" type="service" id="fos_message.provider" />
-            <bind key="$replyFormfactory" type="service" id="fos_message.reply_form.factory" />
-            <bind key="$replyFormHandler" type="service" id="fos_message.reply_form.handler" />
-            <bind key="$newThreadFormFactory" type="service" id="fos_message.new_thread_form.factory" />
-            <bind key="$newThreadFormHandler" type="service" id="fos_message.new_thread_form.handler" />
-            <bind key="$deleter" type="service" id="fos_message.deleter" />
-            <bind key="$threadManager" type="service" id="fos_message.thread_manager" />
-            <bind key="$queryFactory" type="service" id="fos_message.search.query_factory" />
-            <bind key="$finder" type="service" id="fos_message.search.finder" />
+            <argument type="service" id="fos_message.provider" />
+            <argument type="service" id="fos_message.reply_form.factory" />
+            <argument type="service" id="fos_message.reply_form.handler" />
+            <argument type="service" id="fos_message.new_thread_form.factory" />
+            <argument type="service" id="fos_message.new_thread_form.handler" />
+            <argument type="service" id="fos_message.deleter" />
+            <argument type="service" id="fos_message.thread_manager" />
+            <argument type="service" id="fos_message.search.query_factory" />
+            <argument type="service" id="fos_message.search.finder" />
             <call method="setContainer">
                 <argument type="service" id="Psr\Container\ContainerInterface" />
             </call>

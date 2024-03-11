@@ -137,11 +137,11 @@ class ThreadManagerTest extends TestCase
     /**
      * Add expectations on the thread mock.
      *
-     * @param mock &$thread
-     * @param int  $createdByCalls
-     * @param int  $createdAtCalls
+     * @param mixed $thread
+     * @param int   $createdByCalls
+     * @param int   $createdAtCalls
      */
-    protected function addThreadExpectations(&$thread, $createdByCalls = 1, $createdAtCalls = 1)
+    protected function addThreadExpectations($thread, $createdByCalls = 1, $createdAtCalls = 1)
     {
         $thread->expects($this->exactly($createdByCalls))
             ->method('setCreatedBy')
@@ -162,7 +162,7 @@ class ThreadManagerTest extends TestCase
     protected function createParticipantMock($id)
     {
         $participant = $this->getMockBuilder('FOS\MessageBundle\Model\ParticipantInterface')
-            ->disableOriginalConstructor(true)
+            ->disableOriginalConstructor()
             ->getMock();
 
         $participant->expects($this->any())
@@ -180,7 +180,7 @@ class ThreadManagerTest extends TestCase
     protected function createThreadMock()
     {
         return $this->getMockBuilder('FOS\MessageBundle\Model\ThreadInterface')
-            ->disableOriginalConstructor(true)
+            ->disableOriginalConstructor()
             ->getMock();
     }
 }
