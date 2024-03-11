@@ -5,7 +5,7 @@ phpunit.xml
 vendor
 .php_cs.cache
 .php_cs
-Tests/Functional/cache
-Tests/Functional/logs
+tests/Functional/cache
+tests/Functional/logs
 var
 .phpunit.result.cache

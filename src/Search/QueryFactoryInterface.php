@@ -1,0 +1,18 @@
+<?php
+
+namespace FOS\MessageBundle\Search;
+
+use FOS\MessageBundle\Search\Query;
+
+/**
+ * Gets the search term from the request and prepares it.
+ */
+interface QueryFactoryInterface
+{
+    /**
+     * Gets the search term.
+     *
+     * @return Query the term object
+     */
+    public function createFromRequest();
+}

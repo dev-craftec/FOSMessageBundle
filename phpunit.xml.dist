@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
-         bootstrap="./vendor/autoload.php" colors="true"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+         colors="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         convertDeprecationsToExceptions="false"
+         verbose="true"
+         bootstrap="vendor/autoload.php"
 >
     <php>
-        <ini name="xdebug.max_nesting_level" value="200" />
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
+        <ini name="xdebug.max_nesting_level" value="200"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
     </php>
     <testsuites>
-        <testsuite name="FOSMessageBundle">
-            <directory suffix="Test.php">./Tests</directory>
+        <testsuite name="FOSMessageBundle Test Suite">
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
     <coverage>
         <include>
-            <directory>./</directory>
+            <directory>./src</directory>
         </include>
         <exclude>
-            <directory>./Resources</directory>
-            <directory>./Tests</directory>
-            <directory>./vendor</directory>
+            <directory>./src/Resources</directory>
         </exclude>
     </coverage>
 </phpunit>

@@ -32,14 +32,20 @@
         "symfony/yaml": "^6.4 || ^7.0",
         "symfony/browser-kit": "^6.4 || ^7.0",
         "symfony/phpunit-bridge": "^6.4 || ^7.0",
-        "doctrine/orm": "^2.19 || ^3.0"
+        "doctrine/orm": "^2.19 || ^3.0",
+        "phpunit/phpunit": "^9.6"
     },
     "suggest": {
         "doctrine/doctrine-bundle": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "FOS\\MessageBundle\\": ""
+            "FOS\\MessageBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FOS\\MessageBundle\\Tests\\": "tests/"
         }
     },
     "extra": {
