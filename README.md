@@ -3,7 +3,7 @@ FOSMessageBundle
 
 This bundle provides messaging features for a Symfony application. Features available include:
 
-- Support for both the Doctrine ORM and ODM for message storage
+- Support for the Doctrine ORM message storage
 - Threaded conversations
 - Spam detection support
 - Soft deletion of threads
