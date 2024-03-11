@@ -14,19 +14,13 @@ class Configuration implements ConfigurationInterface
 
     /**
      * Generates the configuration tree.
-     *
-     * @return TreeBuilder
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder(self::ROOT_NAME);
-        if (\method_exists($treeBuilder, 'getRootNode')) {
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            $rootNode = $treeBuilder->root(self::ROOT_NAME);
-        }
+        $rootNode = $treeBuilder->getRootNode();
 
-        $treeBuilder->getRootNode()
+        $rootNode
             ->children()
                 ->scalarNode('db_driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('thread_class')->isRequired()->cannotBeEmpty()->end()

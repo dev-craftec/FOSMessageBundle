@@ -58,7 +58,7 @@ class RecipientsDataTransformer implements DataTransformerInterface
      *
      * @return Collection $recipients
      */
-    public function reverseTransform($usernames)
+    public function reverseTransform(mixed $usernames): mixed
     {
         if (null === $usernames || '' === $usernames) {
             return null;

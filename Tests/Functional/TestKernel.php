@@ -1,20 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FOS\MessageBundle\Tests\Functional;
 
 use FOS\MessageBundle\FOSMessageBundle;
 use FOS\MessageBundle\Tests\Functional\Entity\Message;
 use FOS\MessageBundle\Tests\Functional\Entity\Thread;
 use FOS\MessageBundle\Tests\Functional\Entity\UserProvider;
-use FOS\MessageBundle\Tests\Functional\EntityManager\MessageManager;
-use FOS\MessageBundle\Tests\Functional\EntityManager\ThreadManager;
 use FOS\MessageBundle\Tests\Functional\Form\UserToUsernameTransformer;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
@@ -80,13 +79,5 @@ class TestKernel extends Kernel
         $c->register('fos_user.user_to_username_transformer', UserToUsernameTransformer::class);
         $c->register('app.user_provider', UserProvider::class);
         $c->addCompilerPass(new RegisteringManagersPass());
-    }
-}
-
-class RegisteringManagersPass implements CompilerPassInterface {
-    public function process(ContainerBuilder $container): void
-    {
-        $container->register('fos_message.message_manager.default', MessageManager::class);
-        $container->register('fos_message.thread_manager.default', ThreadManager::class);
     }
 }

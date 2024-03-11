@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FOS\MessageBundle\Tests\Functional\EntityManager;
 
 use FOS\MessageBundle\Model\ParticipantInterface;

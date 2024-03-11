@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FOS\MessageBundle\Tests\Functional\Form;
 
 use FOS\MessageBundle\Tests\Functional\Entity\User;
@@ -30,7 +32,7 @@ class UserToUsernameTransformer implements DataTransformerInterface
      *
      * @return UserInterface the corresponding UserInterface instance
      */
-    public function reverseTransform($value)
+    public function reverseTransform(mixed $value): mixed
     {
         return new User();
     }

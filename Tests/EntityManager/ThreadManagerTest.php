@@ -1,9 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FOS\MessageBundle\Tests\EntityManager;
 
-use FOS\MessageBundle\EntityManager\ThreadManager;
-use FOS\MessageBundle\Model\ThreadInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,11 +16,7 @@ class ThreadManagerTest extends TestCase
     protected $user;
     protected $date;
 
-    /**
-     * This method should be setUp(): void
-     * For compatibility reasons with old versions of PHP, we cannot use neither setUp(): void nor setUp().
-     */
-    public function setUpBeforeTest()
+    public function setUp(): void
     {
         $this->user = $this->createParticipantMock('4711');
         $this->date = new \DateTime('2013-12-25');
@@ -31,8 +27,6 @@ class ThreadManagerTest extends TestCase
      */
     public function testDoCreatedByAndAt()
     {
-        $this->setUpBeforeTest();
-
         $thread = $this->createThreadMock();
         $thread->expects($this->exactly(1))->method('getFirstMessage')
             ->will($this->returnValue($this->createMessageMock()));
@@ -46,8 +40,6 @@ class ThreadManagerTest extends TestCase
      */
     public function testDoCreatedByAndAtWithCreatedBy()
     {
-        $this->setUpBeforeTest();
-
         $thread = $this->createThreadMock();
 
         $thread->expects($this->exactly(0))->method('setCreatedBy');
@@ -67,8 +59,6 @@ class ThreadManagerTest extends TestCase
      */
     public function testDoCreatedByAndAtWithCreatedAt()
     {
-        $this->setUpBeforeTest();
-
         $thread = $this->createThreadMock();
 
         $thread->expects($this->exactly(1))->method('setCreatedBy');
@@ -84,12 +74,10 @@ class ThreadManagerTest extends TestCase
     }
 
     /**
-     * Test where both craetedAt and createdBy is set.
+     * Test where both createdAt and createdBy is set.
      */
     public function testDoCreatedByAndAtWithCreatedAtAndBy()
     {
-        $this->setUpBeforeTest();
-
         $thread = $this->createThreadMock();
         $thread->expects($this->exactly(0))->method('setCreatedBy');
         $thread->expects($this->exactly(0))->method('setCreatedAt');
@@ -111,8 +99,6 @@ class ThreadManagerTest extends TestCase
      */
     public function testDoCreatedByAndNoMessage()
     {
-        $this->setUpBeforeTest();
-
         $thread = $this->createThreadMock();
         $thread->expects($this->exactly(0))->method('setCreatedBy');
         $thread->expects($this->exactly(0))->method('setCreatedAt');
@@ -196,25 +182,5 @@ class ThreadManagerTest extends TestCase
         return $this->getMockBuilder('FOS\MessageBundle\Model\ThreadInterface')
             ->disableOriginalConstructor(true)
             ->getMock();
-    }
-}
-
-class TestThreadManager extends ThreadManager
-{
-    /**
-     * Empty constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
-     * Make the function public.
-     *
-     * @param ThreadInterface $thread
-     */
-    public function doCreatedByAndAt(ThreadInterface $thread)
-    {
-        return parent::doCreatedByAndAt($thread);
     }
 }
